@@ -9,7 +9,8 @@
     <p>{% blocktranslate %}Already have an account? Then please
         <a href="{{ login_url }}">login</a>.{% endblocktranslate %}</p>
 
-    <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% comment %} In R4R we will only enable register via Keycloak {% endcomment %}
+    {% comment %} <form id="signup_form" method="post" action="{% url 'account_signup' %}">
         {{ form.non_field_errors }}
         {{ form.media }}
         {% csrf_token %}
@@ -64,7 +65,7 @@
         <div class="u-spacer-bottom-double">
             <button class="btn btn--primary" type="submit">{% translate "Register" %}</button>
         </div>
-    </form>
+    </form> {% endcomment %}
 
     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
 {% endblock %}

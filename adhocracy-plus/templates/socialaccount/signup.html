@@ -7,7 +7,7 @@
 {% block content %}
     <h1>{% translate "Sign Up" %}</h1>
 
-<p>{% blocktranslate with provider_name=account.get_provider.name site_name=current_site %}You are about to use your {{provider_name}} account to login to
+<p>{% blocktranslate with provider_name="R4R App" site_name=current_site %}You are about to use your {{provider_name}} account to login to
 {{site_name}}. As a final step, please complete the following form:{% endblocktranslate %}</p>
 
 <form id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
@@ -20,6 +20,7 @@
 
         <div class="form-group">
             {% include 'a4_candy_contrib/includes/form_field.html' with field=form.username %}
+            {% comment %} {% include 'a4_candy_contrib/includes/form_field.html' with field=form.email %} {% endcomment %}
         </div>
 
         <div class="form-check">

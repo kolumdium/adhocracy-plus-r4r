@@ -8,7 +8,8 @@
 
     <p>{% blocktranslate %}If you have not created an account yet, then please <a href="{{ signup_url }}">register</a> first.{% endblocktranslate %}</p>
 
-    <form method="POST" action="{% url 'account_login' %}" class="u-spacer-bottom-double">
+    {% comment %} In R4R we will only enable login via Keycloak {% endcomment %}
+    {% comment %} <form method="POST" action="{% url 'account_login' %}" class="u-spacer-bottom-double">
         {{ form.non_field_errors }}
         {% csrf_token %}
 
@@ -30,7 +31,7 @@
             <a class="btn btn--link" href="{% url 'account_reset_password' %}">{% translate "Forgot Password?" %}</a>
             </div>
         </div>
-    </form>
+    </form> {% endcomment %}
 
     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
 {% endblock %}
