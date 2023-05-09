@@ -138,12 +138,12 @@ $block-padding-md: 7.5 * $padding;
 
 // coloured background block
 .block-background_cta_block .block > :first-child {
-    background-color: $brand-secondary;
+    background-color: $brand-primary;
+    color: $text-color-inverted;
 }
 
 .block-background_cta_block .block > :last-child {
-    background-color: $brand-primary;
-    color: $text-color-inverted;
+    background-color: $brand-secondary;
 }
 
 // linked for specificty
