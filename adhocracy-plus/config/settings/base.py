@@ -11,7 +11,7 @@ PROJECT_DIR = os.path.dirname(CONFIG_DIR)
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # General settings
-CONTACT_EMAIL = "contact@domain"
+CONTACT_EMAIL = "info@ready-for-robots.de"
 
 # Application definition
 
@@ -111,6 +111,8 @@ INSTALLED_APPS = (
     "apps.polls",
     "apps.topicprio",
     "apps.debate",
+    #r4r addons
+    'allauth.socialaccount.providers.keycloak', # R4R Settings are in local.py
 )
 
 MIDDLEWARE = (
@@ -133,7 +135,7 @@ ROOT_URLCONF = "adhocracy-plus.config.urls"
 LOCALE_PATHS = [
     # use the first line in branches and forks to keep the original translations
     # from main branch and overwrite or add extra translations in fork
-    # os.path.join(BASE_DIR, 'locale-fork/locale'),
+    os.path.join(BASE_DIR, 'locale-fork/locale'),
     os.path.join(BASE_DIR, "locale-source/locale")
 ]
 
@@ -276,7 +278,7 @@ ACCOUNT_ADAPTER = "apps.users.adapters.AccountAdapter"
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "optional" # Because R4R doesn't need to do that Keycloak may.
 ACCOUNT_FORMS = {
     "signup": "apps.users.forms.DefaultSignupForm",
     "login": "apps.users.forms.DefaultLoginForm",
@@ -295,6 +297,9 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 
 LOGIN_URL = "account_login"
 LOGIN_REDIRECT_URL = "/"
+
+ACCOUNT_LOGOUT_ON_GET= True
+ACCOUNT_UNIQUE_EMAIL = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
