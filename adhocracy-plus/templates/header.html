@@ -18,6 +18,36 @@
                     {% include 'includes/header_navbar.html' %}
                 </ul>
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://r4r.informatik.tu-freiberg.de">Blog</a>
+                    </li>
+                    {%  with pages=settings.a4_candy_cms_settings.ImportantPages %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn--select" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {% trans 'Über Uns' %}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                {% if pages.imprint %}
+                                <a class="dropdown-item" href="{{ pages.imprint.url }}">{% trans 'Imprint' %}</a>
+                                {% endif %}
+                                {% if pages.terms_of_use %}
+                                <a class="dropdown-item" href="{{ pages.terms_of_use.url }}">{% trans 'Terms of use' %}</a>
+                                {% endif %}
+                                {% if pages.data_protection_policy %}
+                                <a class="dropdown-item" href="{{ pages.data_protection_policy.url }}">{% trans 'Data protection policy' %}</a>
+                                {% endif %}
+                                {% if pages.netiquette %}
+                                <a class="dropdown-item" href="{{ pages.netiquette.url }}">{% trans 'Netiquette' %}</a>
+                                {% endif %}
+                                {% if pages.contact %}
+                                <a class="dropdown-item" href="{{ pages.contact.url }}">{% trans 'Contact' %}</a>
+                                {% endif %}
+                                {% if pages.manual_link %}
+                                <a class="dropdown-item" href="{{ pages.manual_link }}">{% trans 'Manual' %}</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endwith %}
                     <li class="nav-item header-upper__lang">
                         {% include 'includes/header_language_switch.html' %}
                     </li>

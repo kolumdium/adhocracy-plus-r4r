@@ -6,12 +6,12 @@
 {% block content %}
     <h1>{% translate "Register" %}</h1>
 
-    <p>{% blocktranslate %}Already have an account? Then please
-        <a href="{{ login_url }}">login</a>.{% endblocktranslate %}</p>
+    {% comment %} <p>{% blocktranslate %}Already have an account? Then please
+        <a href="{{ login_url }}">login</a>.{% endblocktranslate %}</p> {% endcomment %}
 
     {% comment %} In R4R we will only enable register via Keycloak {% endcomment %}
-    {% comment %} <form id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {{ form.non_field_errors }}
+    <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% comment %} {{ form.non_field_errors }}
         {{ form.media }}
         {% csrf_token %}
         {% for field in form %}
@@ -54,7 +54,7 @@
         {% endif %}
 
         {% include 'a4_candy_contrib/includes/form_field.html' with field=form.captcha tabindex=0 %}
-
+        {% endcomment %}
         <p>
         {% blocktranslate with data_protection_url=settings.a4_candy_cms_settings.ImportantPages.data_protection_policy.url platformname=settings.a4_candy_cms_settings.OrganisationSettings.platform_name %}
             With your account on {{ platformname }}, you can take part in every public participation project on this platform. This platform allows organisations initiatives to conduct digital participation projects.
@@ -62,10 +62,10 @@
         {% endblocktranslate %}
         </p>
 
-        <div class="u-spacer-bottom-double">
+        {% comment %} <div class="u-spacer-bottom-double">
             <button class="btn btn--primary" type="submit">{% translate "Register" %}</button>
-        </div>
-    </form> {% endcomment %}
+        </div>  {% endcomment %}
+    </form> 
 
     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
 {% endblock %}
