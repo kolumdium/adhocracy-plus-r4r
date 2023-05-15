@@ -20,7 +20,7 @@
         {% if provider.id == "keycloak" %}
         <div class="col-md-6 pb-3">
             <a title="{% translate 'Login with R4R Account' %}"
-                class="btn btn--{{ provider.id }} btn--small {{ provider.id }}"
+                class="btn btn--light btn--{{ provider.id }} btn--small {{ provider.id }}"
                 href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
                 {% translate 'Login with R4R Account' %} <i class="fab fa-{{ provider.id }}" aria-hidden="true"></i>
             </a>
