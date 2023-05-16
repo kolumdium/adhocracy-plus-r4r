@@ -212,7 +212,7 @@ locale.LANG_INFO = LANG_INFO
 PARLER_LANGUAGES = {
     1: [{"code": language_code} for language_code, language in LANGUAGES],
     "default": {
-        "fallbacks": ["en", "de"],
+        "fallbacks": ["de", "en"],
     },
 }
 
