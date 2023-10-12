@@ -50,14 +50,15 @@
                     {% endwith %}
                     <li class="nav-item header-upper__lang">
                         {% include 'includes/header_language_switch.html' %}
+                        <br>
+                    </li>
+                </ul>
+                <ul class="header-upper__nav navbar-nav">
+                    <li class="nav-item header-upper__user" >
+                        {% userindicator %}
                     </li>
                 </ul>
             </div>
-            <ul class="header-upper__nav navbar-nav ms-auto">
-                <li class="nav-item header-upper__user" >
-                    {% userindicator %}
-                </li>
-            </ul>
         </div>
     </nav>
 </header>
